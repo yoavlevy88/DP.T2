@@ -1,0 +1,12 @@
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18 Ex02 Yoav 301675872 Miriam 314256397.csprojResolveAssemblyReference.cache
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.resources
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18 Ex02 Yoav 301675872 Miriam 314256397.csproj.GenerateResource.Cache
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18_Ex02.FormApp.resources
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18_Ex02.MatchForm.resources
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18_Ex02.MatchMessageForm.resources
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\bin\Debug\C18 Ex02 Yoav 301675872 Miriam 314256397.exe
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\bin\Debug\C18 Ex02 Yoav 301675872 Miriam 314256397.pdb
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\bin\Debug\Facebook.dll
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18 Ex02 Yoav 301675872 Miriam 314256397.exe
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18 Ex02 Yoav 301675872 Miriam 314256397.pdb
