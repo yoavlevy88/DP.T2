@@ -21,7 +21,7 @@
             this.m_mailPassword = "design.patternspp2018";
         }
 
-        private void sendMatchMessage(string i_userMail, string i_message, string i_subject)
+        internal void sendMatchMessage(string i_userMail, string i_message, string i_subject)
         {
             MailMessage matchMail = new MailMessage(this.m_sendingMailAddress, i_userMail);
             SmtpClient client = new SmtpClient
@@ -54,6 +54,7 @@
 
             foreach (User friend in i_friendsToMatch)
             {
+     
                 messageBody += string.Format(
                     @"Hi {0}!
 {1} thinks that you and {2} would be a great match!",

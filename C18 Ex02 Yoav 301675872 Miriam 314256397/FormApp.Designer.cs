@@ -68,21 +68,13 @@
             this.labelPages = new System.Windows.Forms.Label();
             this.listBoxPages = new System.Windows.Forms.ListBox();
             this.labelConnected = new System.Windows.Forms.Label();
-            this.buttonWhoUnfriendedMe = new System.Windows.Forms.Button();
             this.buttonMakeAMatch = new System.Windows.Forms.Button();
             this.buttonPost = new System.Windows.Forms.Button();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.panelEventDetails = new System.Windows.Forms.Panel();
-            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.endTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.imageSmallPictureBox = new System.Windows.Forms.PictureBox();
-            this.linkToFacebookTextBox = new System.Windows.Forms.TextBox();
-            this.locationTextBox = new System.Windows.Forms.TextBox();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.startTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
             this.imageSmallPictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageSquarePictureBox = new System.Windows.Forms.PictureBox();
@@ -101,6 +93,15 @@
             this.updateTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.verfiedCheckBox = new System.Windows.Forms.CheckBox();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.endTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.imageSmallPictureBox = new System.Windows.Forms.PictureBox();
+            this.linkToFacebookTextBox = new System.Windows.Forms.TextBox();
+            this.locationTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.startTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.buttonWhoUnfriendedMe = new System.Windows.Forms.Button();
+            this.pictureBoxFriendProfile = new System.Windows.Forms.PictureBox();
             descriptionLabel = new System.Windows.Forms.Label();
             endTimeLabel = new System.Windows.Forms.Label();
             linkToFacebookLabel = new System.Windows.Forms.Label();
@@ -129,16 +130,256 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.panelEventDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSquarePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendProfile)).BeginInit();
             this.SuspendLayout();
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.BackColor = System.Drawing.Color.Transparent;
+            descriptionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            descriptionLabel.Location = new System.Drawing.Point(22, 38);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(63, 13);
+            descriptionLabel.TabIndex = 0;
+            descriptionLabel.Text = "Description:";
+            // 
+            // endTimeLabel
+            // 
+            endTimeLabel.AutoSize = true;
+            endTimeLabel.BackColor = System.Drawing.Color.Transparent;
+            endTimeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            endTimeLabel.Location = new System.Drawing.Point(459, 110);
+            endTimeLabel.Name = "endTimeLabel";
+            endTimeLabel.Size = new System.Drawing.Size(55, 13);
+            endTimeLabel.TabIndex = 2;
+            endTimeLabel.Text = "End Time:";
+            // 
+            // linkToFacebookLabel
+            // 
+            linkToFacebookLabel.AutoSize = true;
+            linkToFacebookLabel.BackColor = System.Drawing.Color.Transparent;
+            linkToFacebookLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            linkToFacebookLabel.Location = new System.Drawing.Point(459, 12);
+            linkToFacebookLabel.Name = "linkToFacebookLabel";
+            linkToFacebookLabel.Size = new System.Drawing.Size(97, 13);
+            linkToFacebookLabel.TabIndex = 6;
+            linkToFacebookLabel.Text = "Link To Facebook:";
+            // 
+            // locationLabel
+            // 
+            locationLabel.AutoSize = true;
+            locationLabel.BackColor = System.Drawing.Color.Transparent;
+            locationLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            locationLabel.Location = new System.Drawing.Point(459, 42);
+            locationLabel.Name = "locationLabel";
+            locationLabel.Size = new System.Drawing.Size(51, 13);
+            locationLabel.TabIndex = 8;
+            locationLabel.Text = "Location:";
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.BackColor = System.Drawing.Color.Transparent;
+            nameLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            nameLabel.Location = new System.Drawing.Point(22, 12);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(38, 13);
+            nameLabel.TabIndex = 10;
+            nameLabel.Text = "Name:";
+            // 
+            // startTimeLabel
+            // 
+            startTimeLabel.AutoSize = true;
+            startTimeLabel.BackColor = System.Drawing.Color.Transparent;
+            startTimeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            startTimeLabel.Location = new System.Drawing.Point(459, 78);
+            startTimeLabel.Name = "startTimeLabel";
+            startTimeLabel.Size = new System.Drawing.Size(58, 13);
+            startTimeLabel.TabIndex = 12;
+            startTimeLabel.Text = "Start Time:";
+            // 
+            // firstNameLabel
+            // 
+            firstNameLabel.AutoSize = true;
+            firstNameLabel.BackColor = System.Drawing.Color.Transparent;
+            firstNameLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            firstNameLabel.Location = new System.Drawing.Point(23, 66);
+            firstNameLabel.Name = "firstNameLabel";
+            firstNameLabel.Size = new System.Drawing.Size(41, 13);
+            firstNameLabel.TabIndex = 20;
+            firstNameLabel.Text = "Owner:";
+            // 
+            // imageNormalLabel
+            // 
+            imageNormalLabel.AutoSize = true;
+            imageNormalLabel.Location = new System.Drawing.Point(80, 461);
+            imageNormalLabel.Name = "imageNormalLabel";
+            imageNormalLabel.Size = new System.Drawing.Size(75, 13);
+            imageNormalLabel.TabIndex = 26;
+            imageNormalLabel.Text = "Image Normal:";
+            // 
+            // imageSmallLabel1
+            // 
+            imageSmallLabel1.AutoSize = true;
+            imageSmallLabel1.Location = new System.Drawing.Point(80, 517);
+            imageSmallLabel1.Name = "imageSmallLabel1";
+            imageSmallLabel1.Size = new System.Drawing.Size(67, 13);
+            imageSmallLabel1.TabIndex = 28;
+            imageSmallLabel1.Text = "Image Small:";
+            // 
+            // imageSquareLabel
+            // 
+            imageSquareLabel.AutoSize = true;
+            imageSquareLabel.Location = new System.Drawing.Point(80, 573);
+            imageSquareLabel.Name = "imageSquareLabel";
+            imageSquareLabel.Size = new System.Drawing.Size(76, 13);
+            imageSquareLabel.TabIndex = 30;
+            imageSquareLabel.Text = "Image Square:";
+            // 
+            // lastNameLabel
+            // 
+            lastNameLabel.AutoSize = true;
+            lastNameLabel.Location = new System.Drawing.Point(80, 632);
+            lastNameLabel.Name = "lastNameLabel";
+            lastNameLabel.Size = new System.Drawing.Size(61, 13);
+            lastNameLabel.TabIndex = 32;
+            lastNameLabel.Text = "Last Name:";
+            // 
+            // linkLabel
+            // 
+            linkLabel.AutoSize = true;
+            linkLabel.Location = new System.Drawing.Point(80, 658);
+            linkLabel.Name = "linkLabel";
+            linkLabel.Size = new System.Drawing.Size(30, 13);
+            linkLabel.TabIndex = 34;
+            linkLabel.Text = "Link:";
+            // 
+            // localeLabel
+            // 
+            localeLabel.AutoSize = true;
+            localeLabel.Location = new System.Drawing.Point(80, 684);
+            localeLabel.Name = "localeLabel";
+            localeLabel.Size = new System.Drawing.Size(42, 13);
+            localeLabel.TabIndex = 36;
+            localeLabel.Text = "Locale:";
+            // 
+            // middleNameLabel
+            // 
+            middleNameLabel.AutoSize = true;
+            middleNameLabel.Location = new System.Drawing.Point(80, 710);
+            middleNameLabel.Name = "middleNameLabel";
+            middleNameLabel.Size = new System.Drawing.Size(72, 13);
+            middleNameLabel.TabIndex = 38;
+            middleNameLabel.Text = "Middle Name:";
+            // 
+            // nameLabel1
+            // 
+            nameLabel1.AutoSize = true;
+            nameLabel1.Location = new System.Drawing.Point(80, 736);
+            nameLabel1.Name = "nameLabel1";
+            nameLabel1.Size = new System.Drawing.Size(38, 13);
+            nameLabel1.TabIndex = 40;
+            nameLabel1.Text = "Name:";
+            // 
+            // pictureLargeURLLabel
+            // 
+            pictureLargeURLLabel.AutoSize = true;
+            pictureLargeURLLabel.Location = new System.Drawing.Point(80, 762);
+            pictureLargeURLLabel.Name = "pictureLargeURLLabel";
+            pictureLargeURLLabel.Size = new System.Drawing.Size(98, 13);
+            pictureLargeURLLabel.TabIndex = 42;
+            pictureLargeURLLabel.Text = "Picture Large URL:";
+            // 
+            // pictureNormalURLLabel
+            // 
+            pictureNormalURLLabel.AutoSize = true;
+            pictureNormalURLLabel.Location = new System.Drawing.Point(80, 788);
+            pictureNormalURLLabel.Name = "pictureNormalURLLabel";
+            pictureNormalURLLabel.Size = new System.Drawing.Size(104, 13);
+            pictureNormalURLLabel.TabIndex = 44;
+            pictureNormalURLLabel.Text = "Picture Normal URL:";
+            // 
+            // pictureSmallURLLabel
+            // 
+            pictureSmallURLLabel.AutoSize = true;
+            pictureSmallURLLabel.Location = new System.Drawing.Point(80, 814);
+            pictureSmallURLLabel.Name = "pictureSmallURLLabel";
+            pictureSmallURLLabel.Size = new System.Drawing.Size(96, 13);
+            pictureSmallURLLabel.TabIndex = 46;
+            pictureSmallURLLabel.Text = "Picture Small URL:";
+            // 
+            // pictureSqaureURLLabel
+            // 
+            pictureSqaureURLLabel.AutoSize = true;
+            pictureSqaureURLLabel.Location = new System.Drawing.Point(80, 840);
+            pictureSqaureURLLabel.Name = "pictureSqaureURLLabel";
+            pictureSqaureURLLabel.Size = new System.Drawing.Size(105, 13);
+            pictureSqaureURLLabel.TabIndex = 48;
+            pictureSqaureURLLabel.Text = "Picture Sqaure URL:";
+            // 
+            // quotesLabel
+            // 
+            quotesLabel.AutoSize = true;
+            quotesLabel.Location = new System.Drawing.Point(80, 866);
+            quotesLabel.Name = "quotesLabel";
+            quotesLabel.Size = new System.Drawing.Size(44, 13);
+            quotesLabel.TabIndex = 50;
+            quotesLabel.Text = "Quotes:";
+            // 
+            // religionLabel
+            // 
+            religionLabel.AutoSize = true;
+            religionLabel.Location = new System.Drawing.Point(80, 892);
+            religionLabel.Name = "religionLabel";
+            religionLabel.Size = new System.Drawing.Size(48, 13);
+            religionLabel.TabIndex = 52;
+            religionLabel.Text = "Religion:";
+            // 
+            // timeZoneLabel
+            // 
+            timeZoneLabel.AutoSize = true;
+            timeZoneLabel.Location = new System.Drawing.Point(80, 918);
+            timeZoneLabel.Name = "timeZoneLabel";
+            timeZoneLabel.Size = new System.Drawing.Size(61, 13);
+            timeZoneLabel.TabIndex = 54;
+            timeZoneLabel.Text = "Time Zone:";
+            // 
+            // updateTimeLabel
+            // 
+            updateTimeLabel.AutoSize = true;
+            updateTimeLabel.Location = new System.Drawing.Point(80, 945);
+            updateTimeLabel.Name = "updateTimeLabel";
+            updateTimeLabel.Size = new System.Drawing.Size(71, 13);
+            updateTimeLabel.TabIndex = 56;
+            updateTimeLabel.Text = "Update Time:";
+            // 
+            // userNameLabel
+            // 
+            userNameLabel.AutoSize = true;
+            userNameLabel.Location = new System.Drawing.Point(80, 970);
+            userNameLabel.Name = "userNameLabel";
+            userNameLabel.Size = new System.Drawing.Size(63, 13);
+            userNameLabel.TabIndex = 58;
+            userNameLabel.Text = "User Name:";
+            // 
+            // verfiedLabel
+            // 
+            verfiedLabel.AutoSize = true;
+            verfiedLabel.Location = new System.Drawing.Point(80, 998);
+            verfiedLabel.Name = "verfiedLabel";
+            verfiedLabel.Size = new System.Drawing.Size(43, 13);
+            verfiedLabel.TabIndex = 60;
+            verfiedLabel.Text = "Verfied:";
             // 
             // textBoxStatus
             // 
             this.textBoxStatus.Enabled = false;
-            this.textBoxStatus.Location = new System.Drawing.Point(323, 28);
+            this.textBoxStatus.Location = new System.Drawing.Point(323, 42);
             this.textBoxStatus.Name = "textBoxStatus";
             this.textBoxStatus.Size = new System.Drawing.Size(429, 20);
             this.textBoxStatus.TabIndex = 4;
@@ -172,10 +413,11 @@
             this.listBoxFriends.Enabled = false;
             this.listBoxFriends.FormattingEnabled = true;
             this.listBoxFriends.HorizontalScrollbar = true;
-            this.listBoxFriends.Location = new System.Drawing.Point(662, 87);
+            this.listBoxFriends.Location = new System.Drawing.Point(469, 87);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(156, 212);
             this.listBoxFriends.TabIndex = 9;
+            this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
             // labelFriends
             // 
@@ -183,7 +425,7 @@
             this.labelFriends.BackColor = System.Drawing.Color.Transparent;
             this.labelFriends.Enabled = false;
             this.labelFriends.ForeColor = System.Drawing.Color.White;
-            this.labelFriends.Location = new System.Drawing.Point(659, 66);
+            this.labelFriends.Location = new System.Drawing.Point(466, 72);
             this.labelFriends.Name = "labelFriends";
             this.labelFriends.Size = new System.Drawing.Size(44, 13);
             this.labelFriends.TabIndex = 10;
@@ -195,7 +437,7 @@
             this.labelPosts.BackColor = System.Drawing.Color.Transparent;
             this.labelPosts.Enabled = false;
             this.labelPosts.ForeColor = System.Drawing.Color.White;
-            this.labelPosts.Location = new System.Drawing.Point(481, 66);
+            this.labelPosts.Location = new System.Drawing.Point(293, 69);
             this.labelPosts.Name = "labelPosts";
             this.labelPosts.Size = new System.Drawing.Size(36, 13);
             this.labelPosts.TabIndex = 12;
@@ -206,7 +448,7 @@
             this.listBoxPosts.Enabled = false;
             this.listBoxPosts.FormattingEnabled = true;
             this.listBoxPosts.HorizontalScrollbar = true;
-            this.listBoxPosts.Location = new System.Drawing.Point(484, 87);
+            this.listBoxPosts.Location = new System.Drawing.Point(296, 87);
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(156, 212);
             this.listBoxPosts.TabIndex = 11;
@@ -217,7 +459,7 @@
             this.labelEvents.BackColor = System.Drawing.Color.Transparent;
             this.labelEvents.Enabled = false;
             this.labelEvents.ForeColor = System.Drawing.Color.White;
-            this.labelEvents.Location = new System.Drawing.Point(301, 66);
+            this.labelEvents.Location = new System.Drawing.Point(45, 324);
             this.labelEvents.Name = "labelEvents";
             this.labelEvents.Size = new System.Drawing.Size(43, 13);
             this.labelEvents.TabIndex = 14;
@@ -228,9 +470,9 @@
             this.listBoxEvents.Enabled = false;
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.HorizontalScrollbar = true;
-            this.listBoxEvents.Location = new System.Drawing.Point(304, 87);
+            this.listBoxEvents.Location = new System.Drawing.Point(154, 324);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(156, 212);
+            this.listBoxEvents.Size = new System.Drawing.Size(166, 69);
             this.listBoxEvents.TabIndex = 13;
             // 
             // labelPages
@@ -262,19 +504,6 @@
             this.labelConnected.Size = new System.Drawing.Size(0, 13);
             this.labelConnected.TabIndex = 19;
             this.labelConnected.Visible = false;
-            // 
-            // buttonWhoUnfriendedMe
-            // 
-            this.buttonWhoUnfriendedMe.Enabled = false;
-            this.buttonWhoUnfriendedMe.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.unfriend;
-            this.buttonWhoUnfriendedMe.Location = new System.Drawing.Point(26, 215);
-            this.buttonWhoUnfriendedMe.Name = "buttonWhoUnfriendedMe";
-            this.buttonWhoUnfriendedMe.Size = new System.Drawing.Size(55, 48);
-            this.buttonWhoUnfriendedMe.TabIndex = 18;
-            this.buttonWhoUnfriendedMe.UseVisualStyleBackColor = true;
-            this.buttonWhoUnfriendedMe.Click += new System.EventHandler(this.buttonWhoUnfriendedMe_Click);
-            this.buttonWhoUnfriendedMe.MouseEnter += new System.EventHandler(this.buttonWhoUnfriendedMe_MouseEnter);
-            this.buttonWhoUnfriendedMe.MouseLeave += new System.EventHandler(this.buttonWhoUnfriendedMe_MouseLeave);
             // 
             // buttonMakeAMatch
             // 
@@ -380,25 +609,171 @@
             this.panelEventDetails.Controls.Add(this.nameTextBox);
             this.panelEventDetails.Controls.Add(startTimeLabel);
             this.panelEventDetails.Controls.Add(this.startTimeDateTimePicker);
-            this.panelEventDetails.Location = new System.Drawing.Point(41, 326);
+            this.panelEventDetails.Location = new System.Drawing.Point(28, 399);
             this.panelEventDetails.Name = "panelEventDetails";
-            this.panelEventDetails.Size = new System.Drawing.Size(776, 170);
+            this.panelEventDetails.Size = new System.Drawing.Size(776, 155);
             this.panelEventDetails.TabIndex = 20;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.FirstName", true));
+            this.firstNameTextBox.Location = new System.Drawing.Point(126, 63);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(200, 20);
+            this.firstNameTextBox.TabIndex = 21;
             // 
             // eventBindingSource
             // 
             this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
             // 
-            // descriptionLabel
+            // imageNormalPictureBox
             // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.BackColor = System.Drawing.Color.Transparent;
-            descriptionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            descriptionLabel.Location = new System.Drawing.Point(22, 38);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(63, 13);
-            descriptionLabel.TabIndex = 0;
-            descriptionLabel.Text = "Description:";
+            this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "Owner.ImageNormal", true));
+            this.imageNormalPictureBox.Location = new System.Drawing.Point(191, 461);
+            this.imageNormalPictureBox.Name = "imageNormalPictureBox";
+            this.imageNormalPictureBox.Size = new System.Drawing.Size(200, 50);
+            this.imageNormalPictureBox.TabIndex = 27;
+            this.imageNormalPictureBox.TabStop = false;
+            // 
+            // imageSmallPictureBox1
+            // 
+            this.imageSmallPictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "Owner.ImageSmall", true));
+            this.imageSmallPictureBox1.Location = new System.Drawing.Point(191, 517);
+            this.imageSmallPictureBox1.Name = "imageSmallPictureBox1";
+            this.imageSmallPictureBox1.Size = new System.Drawing.Size(200, 50);
+            this.imageSmallPictureBox1.TabIndex = 29;
+            this.imageSmallPictureBox1.TabStop = false;
+            // 
+            // imageSquarePictureBox
+            // 
+            this.imageSquarePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "Owner.ImageSquare", true));
+            this.imageSquarePictureBox.Location = new System.Drawing.Point(191, 573);
+            this.imageSquarePictureBox.Name = "imageSquarePictureBox";
+            this.imageSquarePictureBox.Size = new System.Drawing.Size(200, 50);
+            this.imageSquarePictureBox.TabIndex = 31;
+            this.imageSquarePictureBox.TabStop = false;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.LastName", true));
+            this.lastNameTextBox.Location = new System.Drawing.Point(191, 629);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(200, 20);
+            this.lastNameTextBox.TabIndex = 33;
+            // 
+            // linkTextBox
+            // 
+            this.linkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Link", true));
+            this.linkTextBox.Location = new System.Drawing.Point(191, 655);
+            this.linkTextBox.Name = "linkTextBox";
+            this.linkTextBox.Size = new System.Drawing.Size(200, 20);
+            this.linkTextBox.TabIndex = 35;
+            // 
+            // localeTextBox
+            // 
+            this.localeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Locale", true));
+            this.localeTextBox.Location = new System.Drawing.Point(191, 681);
+            this.localeTextBox.Name = "localeTextBox";
+            this.localeTextBox.Size = new System.Drawing.Size(200, 20);
+            this.localeTextBox.TabIndex = 37;
+            // 
+            // middleNameTextBox
+            // 
+            this.middleNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.MiddleName", true));
+            this.middleNameTextBox.Location = new System.Drawing.Point(191, 707);
+            this.middleNameTextBox.Name = "middleNameTextBox";
+            this.middleNameTextBox.Size = new System.Drawing.Size(200, 20);
+            this.middleNameTextBox.TabIndex = 39;
+            // 
+            // nameTextBox1
+            // 
+            this.nameTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Name", true));
+            this.nameTextBox1.Location = new System.Drawing.Point(191, 733);
+            this.nameTextBox1.Name = "nameTextBox1";
+            this.nameTextBox1.Size = new System.Drawing.Size(200, 20);
+            this.nameTextBox1.TabIndex = 41;
+            // 
+            // pictureLargeURLTextBox
+            // 
+            this.pictureLargeURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.PictureLargeURL", true));
+            this.pictureLargeURLTextBox.Location = new System.Drawing.Point(191, 759);
+            this.pictureLargeURLTextBox.Name = "pictureLargeURLTextBox";
+            this.pictureLargeURLTextBox.Size = new System.Drawing.Size(200, 20);
+            this.pictureLargeURLTextBox.TabIndex = 43;
+            // 
+            // pictureNormalURLTextBox
+            // 
+            this.pictureNormalURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.PictureNormalURL", true));
+            this.pictureNormalURLTextBox.Location = new System.Drawing.Point(191, 785);
+            this.pictureNormalURLTextBox.Name = "pictureNormalURLTextBox";
+            this.pictureNormalURLTextBox.Size = new System.Drawing.Size(200, 20);
+            this.pictureNormalURLTextBox.TabIndex = 45;
+            // 
+            // pictureSmallURLTextBox
+            // 
+            this.pictureSmallURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.PictureSmallURL", true));
+            this.pictureSmallURLTextBox.Location = new System.Drawing.Point(191, 811);
+            this.pictureSmallURLTextBox.Name = "pictureSmallURLTextBox";
+            this.pictureSmallURLTextBox.Size = new System.Drawing.Size(200, 20);
+            this.pictureSmallURLTextBox.TabIndex = 47;
+            // 
+            // pictureSqaureURLTextBox
+            // 
+            this.pictureSqaureURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.PictureSqaureURL", true));
+            this.pictureSqaureURLTextBox.Location = new System.Drawing.Point(191, 837);
+            this.pictureSqaureURLTextBox.Name = "pictureSqaureURLTextBox";
+            this.pictureSqaureURLTextBox.Size = new System.Drawing.Size(200, 20);
+            this.pictureSqaureURLTextBox.TabIndex = 49;
+            // 
+            // quotesTextBox
+            // 
+            this.quotesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Quotes", true));
+            this.quotesTextBox.Location = new System.Drawing.Point(191, 863);
+            this.quotesTextBox.Name = "quotesTextBox";
+            this.quotesTextBox.Size = new System.Drawing.Size(200, 20);
+            this.quotesTextBox.TabIndex = 51;
+            // 
+            // religionTextBox
+            // 
+            this.religionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Religion", true));
+            this.religionTextBox.Location = new System.Drawing.Point(191, 889);
+            this.religionTextBox.Name = "religionTextBox";
+            this.religionTextBox.Size = new System.Drawing.Size(200, 20);
+            this.religionTextBox.TabIndex = 53;
+            // 
+            // timeZoneTextBox
+            // 
+            this.timeZoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.TimeZone", true));
+            this.timeZoneTextBox.Location = new System.Drawing.Point(191, 915);
+            this.timeZoneTextBox.Name = "timeZoneTextBox";
+            this.timeZoneTextBox.Size = new System.Drawing.Size(200, 20);
+            this.timeZoneTextBox.TabIndex = 55;
+            // 
+            // updateTimeDateTimePicker
+            // 
+            this.updateTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "Owner.UpdateTime", true));
+            this.updateTimeDateTimePicker.Location = new System.Drawing.Point(191, 941);
+            this.updateTimeDateTimePicker.Name = "updateTimeDateTimePicker";
+            this.updateTimeDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.updateTimeDateTimePicker.TabIndex = 57;
+            // 
+            // userNameTextBox
+            // 
+            this.userNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.UserName", true));
+            this.userNameTextBox.Location = new System.Drawing.Point(191, 967);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(200, 20);
+            this.userNameTextBox.TabIndex = 59;
+            // 
+            // verfiedCheckBox
+            // 
+            this.verfiedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.eventBindingSource, "Owner.Verfied", true));
+            this.verfiedCheckBox.Location = new System.Drawing.Point(191, 993);
+            this.verfiedCheckBox.Name = "verfiedCheckBox";
+            this.verfiedCheckBox.Size = new System.Drawing.Size(200, 24);
+            this.verfiedCheckBox.TabIndex = 61;
+            this.verfiedCheckBox.Text = "checkBox1";
+            this.verfiedCheckBox.UseVisualStyleBackColor = true;
             // 
             // descriptionTextBox
             // 
@@ -407,17 +782,6 @@
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(200, 20);
             this.descriptionTextBox.TabIndex = 1;
-            // 
-            // endTimeLabel
-            // 
-            endTimeLabel.AutoSize = true;
-            endTimeLabel.BackColor = System.Drawing.Color.Transparent;
-            endTimeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            endTimeLabel.Location = new System.Drawing.Point(459, 110);
-            endTimeLabel.Name = "endTimeLabel";
-            endTimeLabel.Size = new System.Drawing.Size(55, 13);
-            endTimeLabel.TabIndex = 2;
-            endTimeLabel.Text = "End Time:";
             // 
             // endTimeDateTimePicker
             // 
@@ -436,17 +800,6 @@
             this.imageSmallPictureBox.TabIndex = 5;
             this.imageSmallPictureBox.TabStop = false;
             // 
-            // linkToFacebookLabel
-            // 
-            linkToFacebookLabel.AutoSize = true;
-            linkToFacebookLabel.BackColor = System.Drawing.Color.Transparent;
-            linkToFacebookLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            linkToFacebookLabel.Location = new System.Drawing.Point(459, 12);
-            linkToFacebookLabel.Name = "linkToFacebookLabel";
-            linkToFacebookLabel.Size = new System.Drawing.Size(97, 13);
-            linkToFacebookLabel.TabIndex = 6;
-            linkToFacebookLabel.Text = "Link To Facebook:";
-            // 
             // linkToFacebookTextBox
             // 
             this.linkToFacebookTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "LinkToFacebook", true));
@@ -454,17 +807,6 @@
             this.linkToFacebookTextBox.Name = "linkToFacebookTextBox";
             this.linkToFacebookTextBox.Size = new System.Drawing.Size(200, 20);
             this.linkToFacebookTextBox.TabIndex = 7;
-            // 
-            // locationLabel
-            // 
-            locationLabel.AutoSize = true;
-            locationLabel.BackColor = System.Drawing.Color.Transparent;
-            locationLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            locationLabel.Location = new System.Drawing.Point(459, 42);
-            locationLabel.Name = "locationLabel";
-            locationLabel.Size = new System.Drawing.Size(51, 13);
-            locationLabel.TabIndex = 8;
-            locationLabel.Text = "Location:";
             // 
             // locationTextBox
             // 
@@ -474,17 +816,6 @@
             this.locationTextBox.Size = new System.Drawing.Size(200, 20);
             this.locationTextBox.TabIndex = 9;
             // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.BackColor = System.Drawing.Color.Transparent;
-            nameLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            nameLabel.Location = new System.Drawing.Point(22, 12);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(38, 13);
-            nameLabel.TabIndex = 10;
-            nameLabel.Text = "Name:";
-            // 
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Name", true));
@@ -492,17 +823,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(200, 20);
             this.nameTextBox.TabIndex = 11;
-            // 
-            // startTimeLabel
-            // 
-            startTimeLabel.AutoSize = true;
-            startTimeLabel.BackColor = System.Drawing.Color.Transparent;
-            startTimeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            startTimeLabel.Location = new System.Drawing.Point(459, 78);
-            startTimeLabel.Name = "startTimeLabel";
-            startTimeLabel.Size = new System.Drawing.Size(58, 13);
-            startTimeLabel.TabIndex = 12;
-            startTimeLabel.Text = "Start Time:";
             // 
             // startTimeDateTimePicker
             // 
@@ -512,335 +832,27 @@
             this.startTimeDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.startTimeDateTimePicker.TabIndex = 13;
             // 
-            // firstNameLabel
-            // 
-            firstNameLabel.AutoSize = true;
-            firstNameLabel.BackColor = System.Drawing.Color.Transparent;
-            firstNameLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            firstNameLabel.Location = new System.Drawing.Point(23, 66);
-            firstNameLabel.Name = "firstNameLabel";
-            firstNameLabel.Size = new System.Drawing.Size(41, 13);
-            firstNameLabel.TabIndex = 20;
-            firstNameLabel.Text = "Owner:";
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.FirstName", true));
-            this.firstNameTextBox.Location = new System.Drawing.Point(126, 63);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(200, 20);
-            this.firstNameTextBox.TabIndex = 21;
-            // 
-            // imageNormalLabel
-            // 
-            imageNormalLabel.AutoSize = true;
-            imageNormalLabel.Location = new System.Drawing.Point(80, 461);
-            imageNormalLabel.Name = "imageNormalLabel";
-            imageNormalLabel.Size = new System.Drawing.Size(75, 13);
-            imageNormalLabel.TabIndex = 26;
-            imageNormalLabel.Text = "Image Normal:";
-            // 
-            // imageNormalPictureBox
-            // 
-            this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "Owner.ImageNormal", true));
-            this.imageNormalPictureBox.Location = new System.Drawing.Point(191, 461);
-            this.imageNormalPictureBox.Name = "imageNormalPictureBox";
-            this.imageNormalPictureBox.Size = new System.Drawing.Size(200, 50);
-            this.imageNormalPictureBox.TabIndex = 27;
-            this.imageNormalPictureBox.TabStop = false;
-            // 
-            // imageSmallLabel1
-            // 
-            imageSmallLabel1.AutoSize = true;
-            imageSmallLabel1.Location = new System.Drawing.Point(80, 517);
-            imageSmallLabel1.Name = "imageSmallLabel1";
-            imageSmallLabel1.Size = new System.Drawing.Size(67, 13);
-            imageSmallLabel1.TabIndex = 28;
-            imageSmallLabel1.Text = "Image Small:";
-            // 
-            // imageSmallPictureBox1
-            // 
-            this.imageSmallPictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "Owner.ImageSmall", true));
-            this.imageSmallPictureBox1.Location = new System.Drawing.Point(191, 517);
-            this.imageSmallPictureBox1.Name = "imageSmallPictureBox1";
-            this.imageSmallPictureBox1.Size = new System.Drawing.Size(200, 50);
-            this.imageSmallPictureBox1.TabIndex = 29;
-            this.imageSmallPictureBox1.TabStop = false;
-            // 
-            // imageSquareLabel
-            // 
-            imageSquareLabel.AutoSize = true;
-            imageSquareLabel.Location = new System.Drawing.Point(80, 573);
-            imageSquareLabel.Name = "imageSquareLabel";
-            imageSquareLabel.Size = new System.Drawing.Size(76, 13);
-            imageSquareLabel.TabIndex = 30;
-            imageSquareLabel.Text = "Image Square:";
-            // 
-            // imageSquarePictureBox
-            // 
-            this.imageSquarePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "Owner.ImageSquare", true));
-            this.imageSquarePictureBox.Location = new System.Drawing.Point(191, 573);
-            this.imageSquarePictureBox.Name = "imageSquarePictureBox";
-            this.imageSquarePictureBox.Size = new System.Drawing.Size(200, 50);
-            this.imageSquarePictureBox.TabIndex = 31;
-            this.imageSquarePictureBox.TabStop = false;
-            // 
-            // lastNameLabel
-            // 
-            lastNameLabel.AutoSize = true;
-            lastNameLabel.Location = new System.Drawing.Point(80, 632);
-            lastNameLabel.Name = "lastNameLabel";
-            lastNameLabel.Size = new System.Drawing.Size(61, 13);
-            lastNameLabel.TabIndex = 32;
-            lastNameLabel.Text = "Last Name:";
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.LastName", true));
-            this.lastNameTextBox.Location = new System.Drawing.Point(191, 629);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(200, 20);
-            this.lastNameTextBox.TabIndex = 33;
-            // 
-            // linkLabel
-            // 
-            linkLabel.AutoSize = true;
-            linkLabel.Location = new System.Drawing.Point(80, 658);
-            linkLabel.Name = "linkLabel";
-            linkLabel.Size = new System.Drawing.Size(30, 13);
-            linkLabel.TabIndex = 34;
-            linkLabel.Text = "Link:";
-            // 
-            // linkTextBox
-            // 
-            this.linkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Link", true));
-            this.linkTextBox.Location = new System.Drawing.Point(191, 655);
-            this.linkTextBox.Name = "linkTextBox";
-            this.linkTextBox.Size = new System.Drawing.Size(200, 20);
-            this.linkTextBox.TabIndex = 35;
-            // 
-            // localeLabel
-            // 
-            localeLabel.AutoSize = true;
-            localeLabel.Location = new System.Drawing.Point(80, 684);
-            localeLabel.Name = "localeLabel";
-            localeLabel.Size = new System.Drawing.Size(42, 13);
-            localeLabel.TabIndex = 36;
-            localeLabel.Text = "Locale:";
-            // 
-            // localeTextBox
-            // 
-            this.localeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Locale", true));
-            this.localeTextBox.Location = new System.Drawing.Point(191, 681);
-            this.localeTextBox.Name = "localeTextBox";
-            this.localeTextBox.Size = new System.Drawing.Size(200, 20);
-            this.localeTextBox.TabIndex = 37;
-            // 
-            // middleNameLabel
-            // 
-            middleNameLabel.AutoSize = true;
-            middleNameLabel.Location = new System.Drawing.Point(80, 710);
-            middleNameLabel.Name = "middleNameLabel";
-            middleNameLabel.Size = new System.Drawing.Size(72, 13);
-            middleNameLabel.TabIndex = 38;
-            middleNameLabel.Text = "Middle Name:";
-            // 
-            // middleNameTextBox
-            // 
-            this.middleNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.MiddleName", true));
-            this.middleNameTextBox.Location = new System.Drawing.Point(191, 707);
-            this.middleNameTextBox.Name = "middleNameTextBox";
-            this.middleNameTextBox.Size = new System.Drawing.Size(200, 20);
-            this.middleNameTextBox.TabIndex = 39;
-            // 
-            // nameLabel1
-            // 
-            nameLabel1.AutoSize = true;
-            nameLabel1.Location = new System.Drawing.Point(80, 736);
-            nameLabel1.Name = "nameLabel1";
-            nameLabel1.Size = new System.Drawing.Size(38, 13);
-            nameLabel1.TabIndex = 40;
-            nameLabel1.Text = "Name:";
-            // 
-            // nameTextBox1
-            // 
-            this.nameTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Name", true));
-            this.nameTextBox1.Location = new System.Drawing.Point(191, 733);
-            this.nameTextBox1.Name = "nameTextBox1";
-            this.nameTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.nameTextBox1.TabIndex = 41;
-            // 
-            // pictureLargeURLLabel
-            // 
-            pictureLargeURLLabel.AutoSize = true;
-            pictureLargeURLLabel.Location = new System.Drawing.Point(80, 762);
-            pictureLargeURLLabel.Name = "pictureLargeURLLabel";
-            pictureLargeURLLabel.Size = new System.Drawing.Size(98, 13);
-            pictureLargeURLLabel.TabIndex = 42;
-            pictureLargeURLLabel.Text = "Picture Large URL:";
-            // 
-            // pictureLargeURLTextBox
-            // 
-            this.pictureLargeURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.PictureLargeURL", true));
-            this.pictureLargeURLTextBox.Location = new System.Drawing.Point(191, 759);
-            this.pictureLargeURLTextBox.Name = "pictureLargeURLTextBox";
-            this.pictureLargeURLTextBox.Size = new System.Drawing.Size(200, 20);
-            this.pictureLargeURLTextBox.TabIndex = 43;
-            // 
-            // pictureNormalURLLabel
-            // 
-            pictureNormalURLLabel.AutoSize = true;
-            pictureNormalURLLabel.Location = new System.Drawing.Point(80, 788);
-            pictureNormalURLLabel.Name = "pictureNormalURLLabel";
-            pictureNormalURLLabel.Size = new System.Drawing.Size(104, 13);
-            pictureNormalURLLabel.TabIndex = 44;
-            pictureNormalURLLabel.Text = "Picture Normal URL:";
-            // 
-            // pictureNormalURLTextBox
-            // 
-            this.pictureNormalURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.PictureNormalURL", true));
-            this.pictureNormalURLTextBox.Location = new System.Drawing.Point(191, 785);
-            this.pictureNormalURLTextBox.Name = "pictureNormalURLTextBox";
-            this.pictureNormalURLTextBox.Size = new System.Drawing.Size(200, 20);
-            this.pictureNormalURLTextBox.TabIndex = 45;
-            // 
-            // pictureSmallURLLabel
-            // 
-            pictureSmallURLLabel.AutoSize = true;
-            pictureSmallURLLabel.Location = new System.Drawing.Point(80, 814);
-            pictureSmallURLLabel.Name = "pictureSmallURLLabel";
-            pictureSmallURLLabel.Size = new System.Drawing.Size(96, 13);
-            pictureSmallURLLabel.TabIndex = 46;
-            pictureSmallURLLabel.Text = "Picture Small URL:";
-            // 
-            // pictureSmallURLTextBox
-            // 
-            this.pictureSmallURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.PictureSmallURL", true));
-            this.pictureSmallURLTextBox.Location = new System.Drawing.Point(191, 811);
-            this.pictureSmallURLTextBox.Name = "pictureSmallURLTextBox";
-            this.pictureSmallURLTextBox.Size = new System.Drawing.Size(200, 20);
-            this.pictureSmallURLTextBox.TabIndex = 47;
-            // 
-            // pictureSqaureURLLabel
-            // 
-            pictureSqaureURLLabel.AutoSize = true;
-            pictureSqaureURLLabel.Location = new System.Drawing.Point(80, 840);
-            pictureSqaureURLLabel.Name = "pictureSqaureURLLabel";
-            pictureSqaureURLLabel.Size = new System.Drawing.Size(105, 13);
-            pictureSqaureURLLabel.TabIndex = 48;
-            pictureSqaureURLLabel.Text = "Picture Sqaure URL:";
-            // 
-            // pictureSqaureURLTextBox
-            // 
-            this.pictureSqaureURLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.PictureSqaureURL", true));
-            this.pictureSqaureURLTextBox.Location = new System.Drawing.Point(191, 837);
-            this.pictureSqaureURLTextBox.Name = "pictureSqaureURLTextBox";
-            this.pictureSqaureURLTextBox.Size = new System.Drawing.Size(200, 20);
-            this.pictureSqaureURLTextBox.TabIndex = 49;
-            // 
-            // quotesLabel
-            // 
-            quotesLabel.AutoSize = true;
-            quotesLabel.Location = new System.Drawing.Point(80, 866);
-            quotesLabel.Name = "quotesLabel";
-            quotesLabel.Size = new System.Drawing.Size(44, 13);
-            quotesLabel.TabIndex = 50;
-            quotesLabel.Text = "Quotes:";
-            // 
-            // quotesTextBox
-            // 
-            this.quotesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Quotes", true));
-            this.quotesTextBox.Location = new System.Drawing.Point(191, 863);
-            this.quotesTextBox.Name = "quotesTextBox";
-            this.quotesTextBox.Size = new System.Drawing.Size(200, 20);
-            this.quotesTextBox.TabIndex = 51;
-            // 
-            // religionLabel
-            // 
-            religionLabel.AutoSize = true;
-            religionLabel.Location = new System.Drawing.Point(80, 892);
-            religionLabel.Name = "religionLabel";
-            religionLabel.Size = new System.Drawing.Size(48, 13);
-            religionLabel.TabIndex = 52;
-            religionLabel.Text = "Religion:";
-            // 
-            // religionTextBox
-            // 
-            this.religionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Religion", true));
-            this.religionTextBox.Location = new System.Drawing.Point(191, 889);
-            this.religionTextBox.Name = "religionTextBox";
-            this.religionTextBox.Size = new System.Drawing.Size(200, 20);
-            this.religionTextBox.TabIndex = 53;
-            // 
-            // timeZoneLabel
-            // 
-            timeZoneLabel.AutoSize = true;
-            timeZoneLabel.Location = new System.Drawing.Point(80, 918);
-            timeZoneLabel.Name = "timeZoneLabel";
-            timeZoneLabel.Size = new System.Drawing.Size(61, 13);
-            timeZoneLabel.TabIndex = 54;
-            timeZoneLabel.Text = "Time Zone:";
-            // 
-            // timeZoneTextBox
-            // 
-            this.timeZoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.TimeZone", true));
-            this.timeZoneTextBox.Location = new System.Drawing.Point(191, 915);
-            this.timeZoneTextBox.Name = "timeZoneTextBox";
-            this.timeZoneTextBox.Size = new System.Drawing.Size(200, 20);
-            this.timeZoneTextBox.TabIndex = 55;
-            // 
-            // updateTimeLabel
-            // 
-            updateTimeLabel.AutoSize = true;
-            updateTimeLabel.Location = new System.Drawing.Point(80, 945);
-            updateTimeLabel.Name = "updateTimeLabel";
-            updateTimeLabel.Size = new System.Drawing.Size(71, 13);
-            updateTimeLabel.TabIndex = 56;
-            updateTimeLabel.Text = "Update Time:";
-            // 
-            // updateTimeDateTimePicker
-            // 
-            this.updateTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "Owner.UpdateTime", true));
-            this.updateTimeDateTimePicker.Location = new System.Drawing.Point(191, 941);
-            this.updateTimeDateTimePicker.Name = "updateTimeDateTimePicker";
-            this.updateTimeDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.updateTimeDateTimePicker.TabIndex = 57;
-            // 
-            // userNameLabel
-            // 
-            userNameLabel.AutoSize = true;
-            userNameLabel.Location = new System.Drawing.Point(80, 970);
-            userNameLabel.Name = "userNameLabel";
-            userNameLabel.Size = new System.Drawing.Size(63, 13);
-            userNameLabel.TabIndex = 58;
-            userNameLabel.Text = "User Name:";
-            // 
-            // userNameTextBox
-            // 
-            this.userNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.UserName", true));
-            this.userNameTextBox.Location = new System.Drawing.Point(191, 967);
-            this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(200, 20);
-            this.userNameTextBox.TabIndex = 59;
-            // 
-            // verfiedLabel
-            // 
-            verfiedLabel.AutoSize = true;
-            verfiedLabel.Location = new System.Drawing.Point(80, 998);
-            verfiedLabel.Name = "verfiedLabel";
-            verfiedLabel.Size = new System.Drawing.Size(43, 13);
-            verfiedLabel.TabIndex = 60;
-            verfiedLabel.Text = "Verfied:";
-            // 
-            // verfiedCheckBox
-            // 
-            this.verfiedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.eventBindingSource, "Owner.Verfied", true));
-            this.verfiedCheckBox.Location = new System.Drawing.Point(191, 993);
-            this.verfiedCheckBox.Name = "verfiedCheckBox";
-            this.verfiedCheckBox.Size = new System.Drawing.Size(200, 24);
-            this.verfiedCheckBox.TabIndex = 61;
-            this.verfiedCheckBox.Text = "checkBox1";
-            this.verfiedCheckBox.UseVisualStyleBackColor = true;
+            // buttonWhoUnfriendedMe
+            // 
+            this.buttonWhoUnfriendedMe.Enabled = false;
+            this.buttonWhoUnfriendedMe.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.unfriend;
+            this.buttonWhoUnfriendedMe.Location = new System.Drawing.Point(26, 216);
+            this.buttonWhoUnfriendedMe.Name = "buttonWhoUnfriendedMe";
+            this.buttonWhoUnfriendedMe.Size = new System.Drawing.Size(46, 48);
+            this.buttonWhoUnfriendedMe.TabIndex = 21;
+            this.buttonWhoUnfriendedMe.UseVisualStyleBackColor = true;
+            this.buttonWhoUnfriendedMe.Click += new System.EventHandler(this.buttonWhoUnfriendedMe_Click);
+            this.buttonWhoUnfriendedMe.MouseEnter += new System.EventHandler(this.buttonWhoUnfriendedMe_MouseEnter);
+            this.buttonWhoUnfriendedMe.MouseLeave += new System.EventHandler(this.buttonWhoUnfriendedMe_MouseLeave);
+            // 
+            // pictureBoxFriendProfile
+            // 
+            this.pictureBoxFriendProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxFriendProfile.Location = new System.Drawing.Point(642, 118);
+            this.pictureBoxFriendProfile.Name = "pictureBoxFriendProfile";
+            this.pictureBoxFriendProfile.Size = new System.Drawing.Size(162, 162);
+            this.pictureBoxFriendProfile.TabIndex = 23;
+            this.pictureBoxFriendProfile.TabStop = false;
             // 
             // FormApp
             // 
@@ -849,17 +861,18 @@
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackgroundImage = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.facebook_background;
-            this.ClientSize = new System.Drawing.Size(860, 511);
+            this.ClientSize = new System.Drawing.Size(842, 566);
+            this.Controls.Add(this.pictureBoxFriendProfile);
+            this.Controls.Add(this.buttonWhoUnfriendedMe);
             this.Controls.Add(this.panelEventDetails);
             this.Controls.Add(this.labelConnected);
-            this.Controls.Add(this.buttonWhoUnfriendedMe);
             this.Controls.Add(this.buttonMakeAMatch);
             this.Controls.Add(this.labelPages);
             this.Controls.Add(this.listBoxPages);
             this.Controls.Add(this.labelEvents);
-            this.Controls.Add(this.listBoxEvents);
             this.Controls.Add(this.labelPosts);
             this.Controls.Add(this.listBoxPosts);
+            this.Controls.Add(this.listBoxEvents);
             this.Controls.Add(this.labelFriends);
             this.Controls.Add(this.listBoxFriends);
             this.Controls.Add(this.labelPostStatus);
@@ -875,10 +888,11 @@
             this.panelEventDetails.ResumeLayout(false);
             this.panelEventDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSquarePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -901,7 +915,6 @@
         private System.Windows.Forms.Label labelPages;
         private System.Windows.Forms.ListBox listBoxPages;
         private System.Windows.Forms.Button buttonMakeAMatch;
-        private System.Windows.Forms.Button buttonWhoUnfriendedMe;
         private System.Windows.Forms.Label labelConnected;
         private System.Windows.Forms.Panel panelEventDetails;
         private System.Windows.Forms.TextBox firstNameTextBox;
@@ -931,5 +944,7 @@
         private System.Windows.Forms.TextBox locationTextBox;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.DateTimePicker startTimeDateTimePicker;
+        private System.Windows.Forms.Button buttonWhoUnfriendedMe;
+        private System.Windows.Forms.PictureBox pictureBoxFriendProfile;
     }
 }

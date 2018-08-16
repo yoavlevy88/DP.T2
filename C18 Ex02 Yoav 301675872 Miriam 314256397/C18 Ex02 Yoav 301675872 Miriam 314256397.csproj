@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FriendListSingleton.cs" />
+    <Compile Include="PicAdapter.cs" />
     <Compile Include="FacebookFriendsUtils.cs" />
     <Compile Include="FormApp.cs">
       <SubType>Form</SubType>
@@ -57,6 +59,8 @@
     <Compile Include="FormApp.Designer.cs">
       <DependentUpon>FormApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="IPicture.cs" />
+    <Compile Include="MailAdapter.cs" />
     <Compile Include="MatchForm.cs">
       <SubType>Form</SubType>
     </Compile>

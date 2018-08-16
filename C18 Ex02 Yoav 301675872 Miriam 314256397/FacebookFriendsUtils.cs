@@ -99,5 +99,16 @@
 
             return unfriendedName;
         }
+
+        internal User findFriend(string o_friendName)
+        {
+            foreach(User friend in this.m_currentFriends)
+            {
+                if (friend.Name == o_friendName)
+                    return friend;
+            }
+
+            return null;
+        }
     }
 }

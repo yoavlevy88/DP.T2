@@ -23,6 +23,8 @@
         private MatchForm m_match;
         private string m_debugPath, m_path;
         private Thread m_mainThread;
+        private PicAdapter m_userPicAdapter;
+        private FriendListSingletone m_friendList;
 
         public FormApp()
         {
@@ -136,14 +138,15 @@
         {
             try
             {
+                this.m_friendList = FriendListSingletone.Instance(this.m_loginResult.LoggedInUser);
                 this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Clear()));
                 this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.DisplayMember = "Name"));
                 foreach (User friend in this.m_loginResult.LoggedInUser.Friends)
                 {
-                    if (Thread.CurrentThread != this.m_mainThread)
-                    {
-                        this.m_friends.Add(friend.Name);
-                    }
+                    //if (Thread.CurrentThread != this.m_mainThread)
+                    //{
+                    //    this.m_friends.Add(friend.Name);
+                    //}
                     this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Add(friend)));
                     friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
                 }
@@ -270,10 +273,19 @@
             this.m_fbFriendsUtils.saveFriendListToFile(this.m_path + "fbFriends.xml");
         }
 
+        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            User friendSelected = this.listBoxFriends.SelectedItem as User;
+            PicAdapter friendPic = new PicAdapter(friendSelected);
+            this.pictureBoxFriendProfile.Image = friendPic.ProfilePic;
+            this.pictureBoxFriendProfile.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
         private void updateComponentsSettingsAfterLogin()
         {
+            this.m_userPicAdapter = new PicAdapter(this.m_loginResult.LoggedInUser);
             this.pictureBoxProfile.AccessibleDescription = string.Format(@"{0}'s profile picture", m_loginResult.LoggedInUser.FirstName);
-            this.pictureBoxProfile.Image = this.m_loginResult.LoggedInUser.ImageNormal;
+            this.pictureBoxProfile.Image = this.m_userPicAdapter.ProfilePic;
             this.labelConnect.Visible = false;
             this.labelConnected.Font = new Font(this.labelConnected.Font, FontStyle.Bold);
             this.labelConnected.Text = string.Format(@"{0}'s Facebook profile", this.m_loginResult.LoggedInUser.Name);
