@@ -10,3 +10,4 @@ C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Mir
 C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\bin\Debug\FbGraphApiWrapper.dll
 C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18 Ex02 Yoav 301675872 Miriam 314256397.exe
 C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18 Ex02 Yoav 301675872 Miriam 314256397.pdb
+C:\Users\miril\documents\visual studio 2015\Projects\C18 Ex02 Yoav 301675872 Miriam 314256397\C18 Ex02 Yoav 301675872 Miriam 314256397\obj\Debug\C18_Ex02.LoginForm.resources

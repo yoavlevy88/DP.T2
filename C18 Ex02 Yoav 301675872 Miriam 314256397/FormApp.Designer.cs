@@ -85,7 +85,6 @@
             // 
             // textBoxStatus
             // 
-            this.textBoxStatus.Enabled = false;
             this.textBoxStatus.Location = new System.Drawing.Point(323, 42);
             this.textBoxStatus.Name = "textBoxStatus";
             this.textBoxStatus.Size = new System.Drawing.Size(429, 20);
@@ -109,7 +108,7 @@
             this.labelPostStatus.Enabled = false;
             this.labelPostStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPostStatus.ForeColor = System.Drawing.Color.White;
-            this.labelPostStatus.Location = new System.Drawing.Point(320, 14);
+            this.labelPostStatus.Location = new System.Drawing.Point(320, 20);
             this.labelPostStatus.Name = "labelPostStatus";
             this.labelPostStatus.Size = new System.Drawing.Size(155, 13);
             this.labelPostStatus.TabIndex = 8;
@@ -220,7 +219,6 @@
             // 
             // buttonMakeAMatch
             // 
-            this.buttonMakeAMatch.Enabled = false;
             this.buttonMakeAMatch.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.match_jpg;
             this.buttonMakeAMatch.Location = new System.Drawing.Point(15, 164);
             this.buttonMakeAMatch.Name = "buttonMakeAMatch";
@@ -233,9 +231,8 @@
             // 
             // buttonPost
             // 
-            this.buttonPost.Enabled = false;
             this.buttonPost.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.FB_Post;
-            this.buttonPost.Location = new System.Drawing.Point(758, 22);
+            this.buttonPost.Location = new System.Drawing.Point(767, 36);
             this.buttonPost.Name = "buttonPost";
             this.buttonPost.Size = new System.Drawing.Size(61, 31);
             this.buttonPost.TabIndex = 6;
@@ -252,6 +249,7 @@
             this.buttonConnect.Size = new System.Drawing.Size(81, 27);
             this.buttonConnect.TabIndex = 3;
             this.buttonConnect.UseVisualStyleBackColor = true;
+            this.buttonConnect.Visible = false;
             this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
             this.buttonConnect.MouseEnter += new System.EventHandler(this.buttonConnect_MouseEnter);
             this.buttonConnect.MouseLeave += new System.EventHandler(this.buttonConnect_MouseLeave);
@@ -268,7 +266,6 @@
             // 
             // buttonWhoUnfriendedMe
             // 
-            this.buttonWhoUnfriendedMe.Enabled = false;
             this.buttonWhoUnfriendedMe.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.unfriend;
             this.buttonWhoUnfriendedMe.Location = new System.Drawing.Point(26, 216);
             this.buttonWhoUnfriendedMe.Name = "buttonWhoUnfriendedMe";

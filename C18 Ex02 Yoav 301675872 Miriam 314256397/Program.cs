@@ -15,7 +15,7 @@ namespace C18_Ex02
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormApp());
+            Application.Run(new LoginForm());
         }
     }
 }

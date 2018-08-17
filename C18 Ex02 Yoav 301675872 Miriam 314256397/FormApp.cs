@@ -28,37 +28,112 @@
         FacebookObjectCollection<Status> statusesToDisplay;
         private FriendListSingletone m_friendList;
 
-        public FormApp()
+        public FormApp(/*ArrayList i_settings, */LoginResult i_loginResult)
         {
             InitializeComponent();
+            this.m_loginResult = i_loginResult;
             this.m_friends = new ArrayList();
             this.m_fbFriendsUtils = new FacebookFriendsUtils();
             this.m_debugPath = Directory.GetCurrentDirectory();
             this.m_path = Path.GetFullPath(Path.Combine(this.m_debugPath, @"..\..\"));
             this.m_mainThread = Thread.CurrentThread;
             statusesToDisplay = new FacebookObjectCollection<Status>();
+            //fetchBySettings(i_settings);
+            this.m_userPicAdapter = new PicAdapter(this.m_loginResult.LoggedInUser);
+            //this.pictureBoxProfile.AccessibleDescription = string.Format(@"{0}'s profile picture", m_loginResult.LoggedInUser.FirstName);
+            this.pictureBoxProfile.Image = this.m_userPicAdapter.ProfilePic;
+            //MessageBox.Show(string.Format(@"Welcome {0}!", m_loginResult.LoggedInUser.FirstName), "Welcome", MessageBoxButtons.OK);
+            //updateComponentsSettingsAfterLogin();
+            //new Thread(fetchFriends).Start();
+            //saveFriendListToFile();
+            //// new Thread(fetchPosts).Start();
+            //fetchPosts();
+            //new Thread(fetchEvents).Start();
+            //new Thread(fetchPages).Start();
+        }
+
+        internal void fetchBySettings(ArrayList i_settings)
+        {
+            foreach(FormAppBuilder.eViewItems item in i_settings)
+            {
+                switch(item)
+                {
+                    case FormAppBuilder.eViewItems.Events:
+                        this.listBoxEvents.Enabled = true;
+                        this.labelEvents.Enabled = true;
+                        new Thread(fetchEvents).Start();
+                        break;
+                    case FormAppBuilder.eViewItems.Friends:
+                        this.listBoxFriends.Enabled = true;
+                        this.labelFriends.Enabled = true;
+                        new Thread(fetchFriends).Start();
+                        break;
+                    case FormAppBuilder.eViewItems.Pages:
+                        this.listBoxPages.Enabled = true;
+                        this.labelPages.Enabled = true;
+                        new Thread(fetchPages).Start();
+                        break;
+                    case FormAppBuilder.eViewItems.Statuses:
+                        this.listBoxPosts.Enabled = true;
+                        this.labelPosts.Enabled = true;
+                        fetchPosts();
+                        break;
+                }
+            }
+        }
+
+        public bool UseListBoxEvents
+        {
+            set
+            {
+                this.listBoxEvents.Enabled = value;
+            }
+        }
+
+        public bool UseListBoxFriends
+        {
+            set
+            {
+                this.listBoxFriends.Enabled = value;
+            }
+        }
+
+        public bool UseListBoxStatuses
+        {
+            set
+            {
+                this.listBoxPosts.Enabled = value;
+            }
+        }
+
+        public bool UseListBoxPages
+        {
+            set
+            {
+                this.listBoxPages.Enabled = value;
+            }
         }
 
         private void buttonConnect_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons okButton = MessageBoxButtons.OK;
-            try
-            {
-                m_loginResult = FacebookService.Login("1765156366870770", "public_profile", "email", "user_friends", "user_posts", "user_birthday", "user_gender", "user_likes", "user_photos", "user_events");
-            }
-            catch (Exception loginException)
-            {
-                throw loginException;
-            }
+            //MessageBoxButtons okButton = MessageBoxButtons.OK;
+            //try
+            //{
+            //    m_loginResult = FacebookService.Login("1765156366870770", "public_profile", "email", "user_friends", "user_posts", "user_birthday", "user_gender", "user_likes", "user_photos", "user_events");
+            //}
+            //catch (Exception loginException)
+            //{
+            //    throw loginException;
+            //}
 
-            MessageBox.Show(string.Format(@"Welcome {0}!", m_loginResult.LoggedInUser.FirstName), "Welcome", okButton);
-            updateComponentsSettingsAfterLogin();
-            new Thread(fetchFriends).Start();
-            saveFriendListToFile();
-            // new Thread(fetchPosts).Start();
-            fetchPosts();
-            new Thread(fetchEvents).Start();
-            new Thread(fetchPages).Start();
+            //MessageBox.Show(string.Format(@"Welcome {0}!", m_loginResult.LoggedInUser.FirstName), "Welcome", okButton);
+            //updateComponentsSettingsAfterLogin();
+            //new Thread(fetchFriends).Start();
+            //saveFriendListToFile();
+            //// new Thread(fetchPosts).Start();
+            //fetchPosts();
+            //new Thread(fetchEvents).Start();
+            //new Thread(fetchPages).Start();
         }
 
         private void fetchPages()
@@ -153,7 +228,7 @@
             try
             {
                 this.m_friendList = FriendListSingletone.Instance(this.m_loginResult.LoggedInUser);
-                this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Clear()));
+                //this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Clear()));
                 this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.DisplayMember = "Name"));
                 foreach (User friend in this.m_loginResult.LoggedInUser.Friends)
                 {
@@ -199,7 +274,7 @@
 
         private void buttonMakeAMatch_Click(object sender, EventArgs e)
         {
-            this.m_match.Select();
+            //this.m_match.Select();
             this.m_match.ShowDialog();
         }
 
@@ -297,9 +372,7 @@
 
         private void updateComponentsSettingsAfterLogin()
         {
-            this.m_userPicAdapter = new PicAdapter(this.m_loginResult.LoggedInUser);
-            this.pictureBoxProfile.AccessibleDescription = string.Format(@"{0}'s profile picture", m_loginResult.LoggedInUser.FirstName);
-            this.pictureBoxProfile.Image = this.m_userPicAdapter.ProfilePic;
+            
             this.labelConnect.Visible = false;
             this.labelConnected.Font = new Font(this.labelConnected.Font, FontStyle.Bold);
             this.labelConnected.Text = string.Format(@"{0}'s Facebook profile", this.m_loginResult.LoggedInUser.Name);
