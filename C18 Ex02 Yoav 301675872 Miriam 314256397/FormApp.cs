@@ -27,17 +27,20 @@
         //private PicAdapter
         FacebookObjectCollection<Status> statusesToDisplay;
         private FriendListSingletone m_friendList;
+        private ArrayList m_setting;
 
-        public FormApp(/*ArrayList i_settings, */LoginResult i_loginResult)
+        public FormApp(ArrayList i_settings, LoginResult i_loginResult)
         {
             InitializeComponent();
             this.m_loginResult = i_loginResult;
+            this.m_setting = i_settings;
             this.m_friends = new ArrayList();
             this.m_fbFriendsUtils = new FacebookFriendsUtils();
             this.m_debugPath = Directory.GetCurrentDirectory();
             this.m_path = Path.GetFullPath(Path.Combine(this.m_debugPath, @"..\..\"));
             this.m_mainThread = Thread.CurrentThread;
             statusesToDisplay = new FacebookObjectCollection<Status>();
+            this.Shown += new System.EventHandler(FormApp_Shown);
             //fetchBySettings(i_settings);
             this.m_userPicAdapter = new PicAdapter(this.m_loginResult.LoggedInUser);
             //this.pictureBoxProfile.AccessibleDescription = string.Format(@"{0}'s profile picture", m_loginResult.LoggedInUser.FirstName);
@@ -228,7 +231,7 @@
             try
             {
                 this.m_friendList = FriendListSingletone.Instance(this.m_loginResult.LoggedInUser);
-                //this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Clear()));
+                this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Clear()));
                 this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.DisplayMember = "Name"));
                 foreach (User friend in this.m_loginResult.LoggedInUser.Friends)
                 {
@@ -275,6 +278,7 @@
         private void buttonMakeAMatch_Click(object sender, EventArgs e)
         {
             //this.m_match.Select();
+            this.m_match = new MatchForm(this.m_loginResult.LoggedInUser);
             this.m_match.ShowDialog();
         }
 
@@ -391,7 +395,11 @@
             this.listBoxFriends.Enabled = true;
             this.listBoxPages.Enabled = true;
             this.listBoxPosts.Enabled = true;
-            this.m_match = new MatchForm(this.m_loginResult.LoggedInUser);
+        }
+
+        private void FormApp_Shown(Object sender, EventArgs e)
+        {
+            fetchBySettings(this.m_setting);
         }
     }
 }

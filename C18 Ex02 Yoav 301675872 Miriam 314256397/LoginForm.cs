@@ -49,8 +49,8 @@ namespace C18_Ex02
                 }
 
                 this.m_app = this.m_appBuilder.createFormApp(settings, loginResult);
-                this.Close();
-                this.m_app.Show();
+                this.Visible = false;
+                this.m_app.ShowDialog();
             }
             catch (Exception loginException)
             {

@@ -18,7 +18,7 @@ namespace C18_Ex02
 
         internal FormApp createFormApp(ArrayList i_settings, LoginResult i_loginResult)
         {
-            FormApp app = new FormApp(i_loginResult);
+            FormApp app = new FormApp(i_settings, i_loginResult);
             //foreach (eViewItems setting in i_settings)
             //{
             //    switch (setting)
@@ -37,7 +37,7 @@ namespace C18_Ex02
             //            break;
             //    }
             //}
-            app.fetchBySettings(i_settings);
+            //app.fetchBySettings(i_settings);
             return app;
         }
     }
