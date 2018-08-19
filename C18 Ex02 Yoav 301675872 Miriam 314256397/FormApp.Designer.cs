@@ -48,7 +48,6 @@
             this.labelConnected = new System.Windows.Forms.Label();
             this.buttonMakeAMatch = new System.Windows.Forms.Button();
             this.buttonPost = new System.Windows.Forms.Button();
-            this.buttonConnect = new System.Windows.Forms.Button();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.buttonWhoUnfriendedMe = new System.Windows.Forms.Button();
             this.pictureBoxFriendProfile = new System.Windows.Forms.PictureBox();
@@ -56,6 +55,7 @@
             this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
             this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.buttonFindFriends = new System.Windows.Forms.Button();
             createdTimeLabel = new System.Windows.Forms.Label();
             messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.statusBindingSource)).BeginInit();
@@ -68,6 +68,8 @@
             // createdTimeLabel
             // 
             createdTimeLabel.AutoSize = true;
+            createdTimeLabel.Enabled = false;
+            createdTimeLabel.ForeColor = System.Drawing.Color.White;
             createdTimeLabel.Location = new System.Drawing.Point(55, 43);
             createdTimeLabel.Name = "createdTimeLabel";
             createdTimeLabel.Size = new System.Drawing.Size(73, 13);
@@ -77,6 +79,8 @@
             // messageLabel
             // 
             messageLabel.AutoSize = true;
+            messageLabel.Enabled = false;
+            messageLabel.ForeColor = System.Drawing.Color.White;
             messageLabel.Location = new System.Drawing.Point(55, 68);
             messageLabel.Name = "messageLabel";
             messageLabel.Size = new System.Drawing.Size(53, 13);
@@ -160,6 +164,7 @@
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(156, 212);
             this.listBoxPosts.TabIndex = 11;
+            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
             // statusBindingSource
             // 
@@ -220,7 +225,7 @@
             // buttonMakeAMatch
             // 
             this.buttonMakeAMatch.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.match_jpg;
-            this.buttonMakeAMatch.Location = new System.Drawing.Point(15, 164);
+            this.buttonMakeAMatch.Location = new System.Drawing.Point(15, 149);
             this.buttonMakeAMatch.Name = "buttonMakeAMatch";
             this.buttonMakeAMatch.Size = new System.Drawing.Size(77, 27);
             this.buttonMakeAMatch.TabIndex = 17;
@@ -241,19 +246,6 @@
             this.buttonPost.MouseEnter += new System.EventHandler(this.buttonPost_MouseEnter);
             this.buttonPost.MouseLeave += new System.EventHandler(this.buttonPost_MouseLeave);
             // 
-            // buttonConnect
-            // 
-            this.buttonConnect.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.FB_Connect;
-            this.buttonConnect.Location = new System.Drawing.Point(12, 101);
-            this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(81, 27);
-            this.buttonConnect.TabIndex = 3;
-            this.buttonConnect.UseVisualStyleBackColor = true;
-            this.buttonConnect.Visible = false;
-            this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
-            this.buttonConnect.MouseEnter += new System.EventHandler(this.buttonConnect_MouseEnter);
-            this.buttonConnect.MouseLeave += new System.EventHandler(this.buttonConnect_MouseLeave);
-            // 
             // pictureBoxProfile
             // 
             this.pictureBoxProfile.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.facebook_blank_photo_11;
@@ -267,7 +259,7 @@
             // buttonWhoUnfriendedMe
             // 
             this.buttonWhoUnfriendedMe.Image = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.unfriend;
-            this.buttonWhoUnfriendedMe.Location = new System.Drawing.Point(26, 216);
+            this.buttonWhoUnfriendedMe.Location = new System.Drawing.Point(30, 182);
             this.buttonWhoUnfriendedMe.Name = "buttonWhoUnfriendedMe";
             this.buttonWhoUnfriendedMe.Size = new System.Drawing.Size(46, 48);
             this.buttonWhoUnfriendedMe.TabIndex = 21;
@@ -311,6 +303,7 @@
             // createdTimeDateTimePicker
             // 
             this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.statusBindingSource, "CreatedTime", true));
+            this.createdTimeDateTimePicker.Enabled = false;
             this.createdTimeDateTimePicker.Location = new System.Drawing.Point(134, 39);
             this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
             this.createdTimeDateTimePicker.Size = new System.Drawing.Size(200, 20);
@@ -319,11 +312,28 @@
             // messageTextBox
             // 
             this.messageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.statusBindingSource, "Message", true));
+            this.messageTextBox.Enabled = false;
             this.messageTextBox.Location = new System.Drawing.Point(134, 65);
             this.messageTextBox.Multiline = true;
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.Size = new System.Drawing.Size(200, 125);
             this.messageTextBox.TabIndex = 3;
+            this.messageTextBox.Leave += new System.EventHandler(this.messageTextBox_Leave);
+            // 
+            // buttonFindFriends
+            // 
+            this.buttonFindFriends.BackColor = System.Drawing.Color.Transparent;
+            this.buttonFindFriends.BackgroundImage = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.facebook_background;
+            this.buttonFindFriends.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonFindFriends.Location = new System.Drawing.Point(15, 101);
+            this.buttonFindFriends.Name = "buttonFindFriends";
+            this.buttonFindFriends.Size = new System.Drawing.Size(77, 42);
+            this.buttonFindFriends.TabIndex = 5;
+            this.buttonFindFriends.Text = "Find friends by category";
+            this.buttonFindFriends.UseVisualStyleBackColor = false;
+            this.buttonFindFriends.Click += new System.EventHandler(this.buttonFindFriends_Click);
+            this.buttonFindFriends.MouseEnter += new System.EventHandler(this.buttonFindFriends_MouseEnter);
+            this.buttonFindFriends.MouseLeave += new System.EventHandler(this.buttonFindFriends_MouseLeave);
             // 
             // FormApp
             // 
@@ -333,6 +343,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackgroundImage = global::C18_Ex02_Yoav_301675872_Miriam_314256397.Properties.Resources.facebook_background;
             this.ClientSize = new System.Drawing.Size(859, 584);
+            this.Controls.Add(this.buttonFindFriends);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBoxFriendProfile);
             this.Controls.Add(this.buttonWhoUnfriendedMe);
@@ -350,7 +361,6 @@
             this.Controls.Add(this.labelConnect);
             this.Controls.Add(this.buttonPost);
             this.Controls.Add(this.textBoxStatus);
-            this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.pictureBoxProfile);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormApp";
@@ -369,7 +379,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxProfile;
-        private System.Windows.Forms.Button buttonConnect;
         private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.Button buttonPost;
         private System.Windows.Forms.Label labelConnect;
@@ -387,9 +396,10 @@
         private System.Windows.Forms.Button buttonWhoUnfriendedMe;
         private System.Windows.Forms.PictureBox pictureBoxFriendProfile;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.BindingSource statusBindingSource;
         private System.Windows.Forms.DateTimePicker createdTimeDateTimePicker;
         private System.Windows.Forms.TextBox messageTextBox;
         private System.Windows.Forms.PictureBox pictureBoxStatus;
+        private System.Windows.Forms.BindingSource statusBindingSource;
+        private System.Windows.Forms.Button buttonFindFriends;
     }
 }

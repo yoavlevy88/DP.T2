@@ -18,20 +18,20 @@
     public partial class FormApp : Form
     {
         private LoginResult m_loginResult = null;
-        private ArrayList m_friends;
         private FacebookFriendsUtils m_fbFriendsUtils;
         private MatchForm m_match;
         private string m_debugPath, m_path;
         private Thread m_mainThread;
         private PicAdapter m_userPicAdapter;
-        //private PicAdapter
         FacebookObjectCollection<Status> statusesToDisplay;
-        private FriendListSingletone m_friendList;
+        ArrayList m_friends;
         private ArrayList m_setting;
+        private bool m_friendsFetched;
 
         public FormApp(ArrayList i_settings, LoginResult i_loginResult)
         {
             InitializeComponent();
+            this.m_friendsFetched = false;
             this.m_loginResult = i_loginResult;
             this.m_setting = i_settings;
             this.m_friends = new ArrayList();
@@ -48,7 +48,6 @@
             //MessageBox.Show(string.Format(@"Welcome {0}!", m_loginResult.LoggedInUser.FirstName), "Welcome", MessageBoxButtons.OK);
             //updateComponentsSettingsAfterLogin();
             //new Thread(fetchFriends).Start();
-            //saveFriendListToFile();
             //// new Thread(fetchPosts).Start();
             //fetchPosts();
             //new Thread(fetchEvents).Start();
@@ -69,6 +68,7 @@
                     case FormAppBuilder.eViewItems.Friends:
                         this.listBoxFriends.Enabled = true;
                         this.labelFriends.Enabled = true;
+                        this.m_friendsFetched = true;
                         new Thread(fetchFriends).Start();
                         break;
                     case FormAppBuilder.eViewItems.Pages:
@@ -77,6 +77,8 @@
                         new Thread(fetchPages).Start();
                         break;
                     case FormAppBuilder.eViewItems.Statuses:
+                        this.messageTextBox.Enabled = true;
+                        this.createdTimeDateTimePicker.Enabled = true;
                         this.listBoxPosts.Enabled = true;
                         this.labelPosts.Enabled = true;
                         fetchPosts();
@@ -117,27 +119,6 @@
             }
         }
 
-        private void buttonConnect_Click(object sender, EventArgs e)
-        {
-            //MessageBoxButtons okButton = MessageBoxButtons.OK;
-            //try
-            //{
-            //    m_loginResult = FacebookService.Login("1765156366870770", "public_profile", "email", "user_friends", "user_posts", "user_birthday", "user_gender", "user_likes", "user_photos", "user_events");
-            //}
-            //catch (Exception loginException)
-            //{
-            //    throw loginException;
-            //}
-
-            //MessageBox.Show(string.Format(@"Welcome {0}!", m_loginResult.LoggedInUser.FirstName), "Welcome", okButton);
-            //updateComponentsSettingsAfterLogin();
-            //new Thread(fetchFriends).Start();
-            //saveFriendListToFile();
-            //// new Thread(fetchPosts).Start();
-            //fetchPosts();
-            //new Thread(fetchEvents).Start();
-            //new Thread(fetchPages).Start();
-        }
 
         private void fetchPages()
         {
@@ -177,11 +158,9 @@
                 {
                     this.listBoxEvents.Invoke(new Action(() => this.listBoxEvents.Items.Add("No events to display!")));
                 }
-                //eventBindingSource.DataSource = this.m_loginResult.LoggedInUser.Events;
             }
             catch
             {
-                //this.listBoxEvents.Invoke(new Action(() => this.listBoxEvents.Text = "Due to Facebook permission issues, cannot display events at the moment"));
                 this.listBoxEvents.Invoke(new Action(() => this.listBoxEvents.Items.Add("Due to Facebook permission issues, cannot display events at the moment")));
             }
         }
@@ -216,29 +195,35 @@
             //{
             //    this.listBoxPosts.Invoke(new Action(() => this.listBoxPages.Items.Add("Due to Facebook permission issues, cannot display posts at the moment")));
             //}
-            foreach(Status status in this.m_loginResult.LoggedInUser.Statuses)
+
+            cleanEmpty();
+            this.statusBindingSource.DataSource = statusesToDisplay;
+        }
+
+        private void cleanEmpty()
+        {
+            foreach (Status status in this.m_loginResult.LoggedInUser.Statuses)
             {
-                if(status.Message!= null)
+                if (status.Message != null)
                 {
                     statusesToDisplay.Add(status);
                 }
             }
-            this.statusBindingSource.DataSource = statusesToDisplay;
         }
 
         private void fetchFriends()
         {
             try
             {
-                this.m_friendList = FriendListSingletone.Instance(this.m_loginResult.LoggedInUser);
+                //this.m_friendList = //FriendListSingletone.Instance(this.m_loginResult.LoggedInUser);
                 this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Clear()));
                 this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.DisplayMember = "Name"));
                 foreach (User friend in this.m_loginResult.LoggedInUser.Friends)
                 {
-                    //if (Thread.CurrentThread != this.m_mainThread)
-                    //{
-                    //    this.m_friends.Add(friend.Name);
-                    //}
+                    if (Thread.CurrentThread != this.m_mainThread)
+                    {
+                        this.m_friends.Add(friend);
+                    }
                     this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Add(friend)));
                     friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
                 }
@@ -248,6 +233,7 @@
                     this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Items.Add("No friends to display!")));
                     this.listBoxFriends.Invoke(new Action(() => this.listBoxFriends.Enabled = false));
                 }
+                saveFriendListToFile();
             }
             catch
             {
@@ -277,6 +263,11 @@
 
         private void buttonMakeAMatch_Click(object sender, EventArgs e)
         {
+            if(!this.m_friendsFetched)
+            {
+                fetchFriends();
+                this.m_friendsFetched = true;
+            }
             //this.m_match.Select();
             this.m_match = new MatchForm(this.m_loginResult.LoggedInUser);
             this.m_match.ShowDialog();
@@ -285,7 +276,7 @@
         private void saveFriendListToFile()
         {
             this.m_fbFriendsUtils.CurrentFriends = this.m_friends;
-            this.m_fbFriendsUtils.createFirstFriendsFile(this.m_path + this.m_loginResult.LoggedInUser.Name + "fbFriends.xml");
+            this.m_fbFriendsUtils.createFirstFriendsFile(this.m_path + "fbFriends.xml");
         }
 
         private void buttonConnect_MouseEnter(object sender, EventArgs e)
@@ -333,6 +324,11 @@
             string friendOrFriends = null;
             string hasOrHave = null;
             int unfriendedCount = 0;
+            if (!this.m_friendsFetched)
+            {
+                fetchFriends();
+                this.m_friendsFetched = true;
+            }
             string unfriendedName = this.m_fbFriendsUtils.compareFriendLists(this.m_path + "fbFriends.xml", ref unfriendedCount);
             string message = null;
 
@@ -376,12 +372,11 @@
 
         private void updateComponentsSettingsAfterLogin()
         {
-            
             this.labelConnect.Visible = false;
             this.labelConnected.Font = new Font(this.labelConnected.Font, FontStyle.Bold);
             this.labelConnected.Text = string.Format(@"{0}'s Facebook profile", this.m_loginResult.LoggedInUser.Name);
             this.labelConnected.Visible = true;
-            this.buttonConnect.Enabled = false;
+            //this.buttonConnect.Enabled = false;
             this.labelFriends.Enabled = true;
             this.labelPosts.Enabled = true;
             this.labelEvents.Enabled = true;
@@ -395,6 +390,42 @@
             this.listBoxFriends.Enabled = true;
             this.listBoxPages.Enabled = true;
             this.listBoxPosts.Enabled = true;
+        }
+
+        private void messageTextBox_Leave(object sender, EventArgs e)
+        {
+            //(listBoxPosts.SelectedItem as Status).Message = messageTextBox.Text;
+        }
+
+        private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (listBoxPosts.SelectedItem != null)
+            //{
+            //    Status selectedItem = listBoxPosts.SelectedItem as Status;
+            //    messageTextBox.Text = selectedItem.Message;
+            //    createdTimeDateTimePicker.Value = selectedItem.CreatedTime.Value;
+            //}
+        }
+
+        private void buttonFindFriends_Click(object sender, EventArgs e)
+        {
+            if (!this.m_friendsFetched)
+            {
+                fetchFriends();
+                this.m_friendsFetched = true;
+            }
+            FindFriends findForm = new FindFriends(this.m_friends);
+            findForm.ShowDialog();
+        }
+
+        private void buttonFindFriends_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void buttonFindFriends_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
 
         private void FormApp_Shown(Object sender, EventArgs e)

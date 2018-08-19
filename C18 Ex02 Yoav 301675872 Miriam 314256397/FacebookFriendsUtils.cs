@@ -10,10 +10,11 @@
     using FacebookWrapper;
     using FacebookWrapper.ObjectModel;
 
-    public class FacebookFriendsUtils
+    public class FacebookFriendsUtils: IFinder
     {
         private ArrayList m_currentFriends;
         private bool m_firstCreated;
+        public ArrayList FilteredFriends { get; set; }
 
         internal FacebookFriendsUtils()
         {
@@ -86,11 +87,11 @@
             ArrayList friendsFromFile = getFriendsFromFile(i_filePath);
             if(this.m_currentFriends.Count < friendsFromFile.Count)
             {
-                foreach(string friendName in friendsFromFile)
+                foreach(User friend in friendsFromFile)
                 {
-                    if(!this.m_currentFriends.Contains(friendName))
+                    if(!this.m_currentFriends.Contains(friend))
                     {
-                        unfriendedName += friendName;
+                        unfriendedName += friend.Name;
                         unfriendedName += Environment.NewLine;
                         o_unfriendCount++;
                     }
@@ -109,6 +110,91 @@
             }
 
             return null;
+        }
+
+        public ArrayList findByCity(string i_city)
+        {
+            ArrayList friendsByCity = new ArrayList();
+            try
+            {
+                foreach (User friend in this.FilteredFriends)
+                {
+                    if (friend.Hometown.ToString().ToLower() == i_city.ToLower())
+                    {
+                        friendsByCity.Add(friend);
+                    }
+                }
+                return friendsByCity;
+            }
+            catch(Exception cityException)
+            {
+                throw cityException;
+            }
+        }
+
+        public ArrayList findByGender(ArrayList i_genders)
+        {
+            ArrayList friendsByGender = new ArrayList();
+
+            try
+            {
+                foreach (string gender in i_genders)
+                {
+                    foreach (User friend in this.FilteredFriends)
+                    {
+                        if (friend.Gender.ToString().ToLower() == gender.ToLower())
+                        {
+                            friendsByGender.Add(friend);
+                        }
+                    }
+                }
+            }
+            catch(Exception genderException)
+            {
+                throw genderException;
+            }
+
+            return friendsByGender;
+        }
+
+        public ArrayList findByAge(int i_from, int i_to)
+        {
+            ArrayList friendsByAge = new ArrayList();
+
+            foreach (User friend in this.FilteredFriends)
+            {
+                try
+                {
+                    int friendAge = DateTime.Now.Year - DateTime.Parse(friend.Birthday).Year;
+
+                    if (friendAge >= i_from && friendAge <= i_to)
+                    {
+                        friendsByAge.Add(friend);
+                    }
+                }
+                catch(Exception ageException)
+                {
+                    throw ageException;
+                }
+            }
+
+            return friendsByAge;
+        }
+
+        public ArrayList findByCategory(ArrayList i_genders, string i_city, int i_fromAge, int i_toAge)
+        {
+            try
+            {
+                this.FilteredFriends = this.m_currentFriends;
+                this.FilteredFriends = findByAge(i_fromAge, i_toAge);
+                this.FilteredFriends = findByCity(i_city);
+                this.FilteredFriends = findByGender(i_genders);
+                return this.FilteredFriends;
+            }
+            catch(Exception findFriendsException)
+            {
+                throw findFriendsException;
+            }
         }
     }
 }
